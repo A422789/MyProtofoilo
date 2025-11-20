@@ -1,0 +1,192 @@
+@import "tailwindcss";
+
+.perspective-container {
+  perspective: 800px;
+}
+
+.logo {
+  transform-style: preserve-3d;
+  animation: show-from-side 2s ease-out forwards;
+}
+
+@keyframes show-from-side {
+  from {
+    opacity: 0;
+    transform: rotateY(-90deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotateY(0deg);
+  }
+}
+
+.multi-layer-link {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: color 0.4s ease;
+}
+
+/*  تغيير لون النص عند الهوفر أو عندما يكون الرابط نشطًا */
+.multi-layer-link:hover,
+.multi-layer-link.activeLink {
+  color: #948a62e9;
+}
+
+.multi-layer-link::before,
+.multi-layer-link::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  height: 600px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out, transform 2s ease-out;
+}
+
+/*  تفعيل الأنيميشن عند الهوفر أو عندما يكون الرابط نشطًا */
+.multi-layer-link:hover::before,
+.multi-layer-link.activeLink::before,
+.multi-layer-link:hover::after,
+.multi-layer-link.activeLink::after {
+  opacity: 1;
+  animation: rotate-gold 3s linear infinite;
+}
+
+@keyframes rotate-gold {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.multi-layer-link::before {
+  background-clip: padding-box;
+  border: 2px solid transparent;
+  filter: brightness(1.3);
+  background-image: conic-gradient(
+    #110f09,
+    #DAA520 5%,
+    #110f09 14%,
+    #110f09 50%,
+    #FFD700 60%,
+    #110f09 64%
+  );
+  
+}
+
+.multi-layer-link::after {
+  filter: blur(25px);
+  opacity: 0;
+  background-image: conic-gradient(
+    transparent,
+    #FFBF00 5%,
+    transparent 38%,
+    transparent 50%,
+    #F0E68C 60%,
+    transparent 87%
+  );
+  animation-delay: -0.2s;
+}
+
+/*  تغيير شفافية الطبقة الثانية عند الهوفر أو عندما يكون الرابط نشطًا */
+.multi-layer-link:hover::after,
+.multi-layer-link.activeLink::after {
+  opacity: 0.6;
+}
+
+
+
+/* src/index.css */
+
+/* ... (Your existing styles) ... */
+
+/* ---------------------------------- */
+/*   Project Button Styles            */
+/* ---------------------------------- */
+.project-button {
+  @apply 
+    bg-transparent
+    text-[#cea605]
+    font-semibold
+    text-sm
+    tracking-wider
+    py-3 px-6
+    border-2
+    border-[#cea605]
+    overflow-hidden
+    cursor-pointer
+    transition-all
+    duration-300;
+}
+
+.project-button:hover {
+  @apply 
+    bg-[#f2de8c]
+    text-black
+    shadow-[0_0_25px_10px_rgba(206,166,5,0.5)];
+    
+}
+
+
+/* src/index.css */
+
+/* ... (Your existing styles for project-button, etc.) ... */
+
+/* ---------------------------------- */
+/*   Contact Form Input Styles        */
+/* ---------------------------------- */
+.contact-input {
+  @apply 
+    w-full 
+    bg-transparent 
+    border 
+    border-[#cea605] 
+    text-white 
+    text-lg
+    p-3 
+    rounded-md 
+    transition-all 
+    duration-300 
+    ease-in-out
+    focus:outline-none; /* إزالة الـ outline الافتراضي */
+}
+
+/* التأثير عند التركيز (Focus) */
+.contact-input:focus {
+  @apply 
+    ring-2 /* يعادل outline بـ 2px */
+    ring-[#b49106] /* لون الـ outline الذهبي الأغمق */
+    shadow-[0_0_20px_3px_rgba(206,166,5,0.4)]; /* الظل المحيطي الكامل */
+}
+
+/* ---------------------------------- */
+/*   Contact Form Send Button         */
+/* ---------------------------------- */
+.contact-send-button {
+  @apply 
+    bg-transparent
+    hover:bg-[#f2de8c]
+    text-[#cea605]
+    hover:text-black
+    font-semibold
+    text-xl
+    tracking-wider
+    py-3 px-6
+    border-2
+    border-[#cea605]
+    rounded-2xl /* بوردر ريديوس أكبر كما طلبت */
+    overflow-hidden
+    cursor-pointer
+    transition-all
+    duration-300
+    shadow-[0_0_15px_7px_rgba(206,166,5,0.3)]
+    hover:shadow-[0_0_25px_10px_rgba(206,166,5,0.5)];
+}

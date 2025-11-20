@@ -1,0 +1,46 @@
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; 
+  
+}
+body{
+  background-color: black;
+}
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 70px;
+  background-color: transparent;
+}
+
+/* Scrollbar Track (الخلفية) */
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 20px;
+}
+
+/* Scrollbar Thumb (المؤشّر) */
+::-webkit-scrollbar-thumb {
+
+  background: url('./assets/lion.png') center/cover no-repeat;
+  border-radius: 50px;
+  border: 20px solid transparent; /* عشان الصورة تبين واضحة */
+}
+
+/* لما تعمل Hover على الـ Thumb */
+::-webkit-scrollbar-thumb:hover {
+  background: url('./assets/lion.png') center/cover no-repeat;
+  filter: brightness(1.2);
+}
+
+/* إزالة الأسهم فوق وتحت */
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+html, body {
+  cursor: url('/LionHand.png') , auto;
+}
+button, a, .pointer {
+  cursor: url('/LionHandPointer.png') , pointer;
+}
