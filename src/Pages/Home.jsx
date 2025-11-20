@@ -34,7 +34,7 @@ As a Front-End Developer, I architect and build intuitive user experiences with 
       </div>
      <div className='w-[90%] sm:w-fit  flex flex-col sm:flex-row  justify-between gap-5 sm:gap-20'>
        <HireMeBtn/>
-       <a href='/CV.pdf' download={"Ahmed-Ayyad-CV.pdf"}
+       <a href='/MyProtofoilo/CV.pdf' download={"Ahmed-Ayyad-CV.pdf"}
   className="
     bg-transparent
     hover:bg-[#f2de8c]
