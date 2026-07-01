@@ -1,6 +1,7 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import {  useState } from 'react';
+import { href } from 'react-router-dom';
 
 
 const navigation = [
@@ -8,7 +9,9 @@ const navigation = [
   { name: 'About', href: '#about', current: false },
   { name: 'Skills', href: '#skills', current: false },
   { name: 'Projects', href: '#projects', current: false },
+  {name:'Certificates',href:'#certificate',current:false},
   { name: 'Contact', href: '#contact', current: false },
+  
 ];
 
 function classNames(...classes) {

@@ -19,11 +19,11 @@ const Home = () => {
      <div className='text-white w-full lg:w-1/2 px-5 lg:pl-20 flex flex-col '>
      <div className='text-2xl sm:text-4xl mb-[10%] sm:w-170 w-[90%] tracking-wider  text-[#b3b3b3] min-h-50 '>
       
-As a Front-End Developer, I architect and build intuitive user experiences with React.js, from
+As a Full-Stack Developer, I architect and build end-to-end web applications with React.js and Node.js, from
        <TypeAnimation 
        sequence={[
         1500,
-    ' ENTERPRISE DASHBOARDS TO COMPLETE E-COMMERCE STOREFRONTS',
+    ' ENTERPRISE DASHBOARDS TO FULL-STACK MERN APPLICATIONS',
     1000, 
   ]}
        className='text-[#cea605] tracking-wider '

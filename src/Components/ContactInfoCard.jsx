@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ContactInfoCard = ({ icon, title, value }) => {
+const ContactInfoCard = ({ icon, title, value ,extraVal}) => {
   return (
     <div className="
       w-full bg-black 
@@ -21,7 +21,7 @@ const ContactInfoCard = ({ icon, title, value }) => {
       {/* المحتوى */}
       <div className="flex flex-col">
         <h4 className="font-semibold text-white text-lg">{title}</h4>
-        <p className="text-[#b3b3b3] text-base break-all">{value}</p>
+        <p className="text-[#b3b3b3] text-base break-all">{value} <br /> {extraVal}</p>
       </div>
     </div>
   );

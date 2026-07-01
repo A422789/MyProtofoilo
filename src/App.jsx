@@ -7,7 +7,7 @@ import Projects from './Pages/Projects'
 import Contact from './Pages/Contact'
 import Footer from './Components/Footer'
 import FlotingWhatsap from './Components/FlotingWhatsap'
-
+import Certifcate from './Pages/Certicate'
 function App() {
 
 
@@ -20,6 +20,7 @@ function App() {
       <div id="about"><About/></div>
      <div id="skills"> <Skills/></div>
       <div id="projects"><Projects/></div>
+      <div id="certificate"><Certifcate/></div>
      <div id="contact"> <Contact/></div>
      <div id='Footeer'> <Footer/></div>
 

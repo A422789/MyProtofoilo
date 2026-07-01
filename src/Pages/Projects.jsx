@@ -12,6 +12,7 @@ import TodoApp from '../assets/TodoApp.png'
 import ProjectManager from '../assets/ProjectManager.png'
 import LoginPage from '../assets/LoginPage.png'
 import Coffee from '../assets/Coffee.png'
+import CMS from '../assets/CMS.png'
 
 const ProjectCard = ({ image, title, overview, liveLink, sourceLink }) => {
   
@@ -91,6 +92,15 @@ const Projects = () => {
 
 const projects = [
   {
+    title: "CMS: Company Management System",
+    overview:
+      "A full-stack company management system built with the MERN stack (React.js, Node.js, Express.js, MongoDB). Features a React frontend connected to a secure REST API backend, with MongoDB data modeling for managing company records and resources.",
+    liveLink: "",
+    sourceLink: "https://github.com/A422789/FullStackProject",
+    image: CMS,
+  },
+  {
+    
     title: "Chat-Boot: A ChatGPT Clone",
     overview:
       "A pixel-perfect replica of the ChatGPT interface, built with React and Tailwind CSS. Powered by Google's Gemini Pro API, it features real-time streaming, advanced API integration, and seamless error handling.",

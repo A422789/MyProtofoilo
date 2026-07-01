@@ -2,7 +2,7 @@ import React from 'react'
 
 const FlotingWhatsap = () => {
   return (
-    <div className='fixed top-20 -left-10 z-100 flex gap-6 max-w-md'>
+    <div className='fixed top-20 -left-10 z-100 flex gap-6 max-w-md hidden lg:block'>
       <a   href='https://wa.me/923159186062' target='_blank' className="p-5 w-30 justify-end flex rounded-full backdrop-blur-lg border border-[#cea605]/30 bg-liner-to-tr from-black/60 to-black/40 shadow-lg shadow-[#cea605]/30 hover:shadow-2xl hover:shadow-[#f2de8c]/40  active:scale-95 active:rotate-0 transition-all duration-300 ease-out cursor-pointer hover:border-[#f2de8c]/70 group relative overflow-hidden">
   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#f2de8c]/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out" />
   <div className="relative z-10">

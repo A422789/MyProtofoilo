@@ -128,8 +128,8 @@ const formRef = useRef();
           className="w-full lg:w-[80%] mx-auto flex flex-col md:flex-row items-center justify-center gap-8 order-3"
         >
           <ContactInfoCard icon={icons.email} title="Email" value="a422789255@gmail.com" />
-          <ContactInfoCard icon={icons.phone} title="Phone" value="+923159186062" />
-          <ContactInfoCard icon={icons.location} title="Location" value="Islamabad, Pakistan" />
+          <ContactInfoCard icon={icons.phone} title="Phone" value="+201225044423" />
+          <ContactInfoCard icon={icons.location} title="Location" value="Cairo ,Egypt" />
         </motion.div>
       </div>
     </section>

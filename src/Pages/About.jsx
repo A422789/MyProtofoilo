@@ -80,7 +80,7 @@ const About = () => {
             className="lg:w-1/2 text-lg lg:order-2 order-1"
           >
             <p className="text-[#b3b3b3] leading-relaxed text-center lg:text-left">
-              As a passionate Software Engineering student and dedicated React.js Developer, I thrive on transforming complex challenges into elegant, high-performance web applications. My journey isn't just about writing code; it's about architecting solutions. I've built a diverse portfolio of over 10 applications, from enterprise dashboards to full-stack e-commerce platforms, demonstrating a deep commitment to the entire development lifecycle.
+             As a passionate Software Engineering student and dedicated Full-Stack (MERN) Developer, I thrive on architecting end-to-end solutions with React.js, Node.js, Express.js, and MongoDB. My journey isn't just about writing code; it's about building complete systems. I've built a diverse portfolio of applications, from enterprise dashboards to full-stack company management systems, demonstrating a deep commitment to the entire development lifecycle.
             </p>
           </motion.div>
 
