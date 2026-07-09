@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import myImage from '../assets/AboutSec.png'; 
+import API from '../api/axios.js';
+import LoadingSpinner from '../Components/LoadingSpinner';
 
 const About = () => {
+  const [profile, setProfile] = useState(null);
   const { ref, inView } = useInView({
     threshold: 0.2,
     triggerOnce: true,
   });
 
+  useEffect(() => {
+    API.get('/profile')
+      .then(res => setProfile(res.data.data))
+      .catch(err => console.error('Failed to fetch profile:', err));
+  }, []);
 
   const imageVariants = {
     hidden: { opacity: 0, scale: 0.5 },
@@ -24,6 +31,12 @@ const About = () => {
     hidden: { opacity: 0, y: -50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } }
   };
+
+  if (!profile) return (
+    <section className='min-h-screen bg-black flex items-center justify-center'>
+      <LoadingSpinner size="large" />
+    </section>
+  );
 
   return (
     <section 
@@ -64,8 +77,8 @@ const About = () => {
               
               <div className="w-full h-full rounded-full overflow-hidden">
                 <img 
-                  src={myImage} 
-                  alt="Ahmed Ayyad" 
+                  src={profile.aboutImage?.url} 
+                  alt={profile.name} 
                   className="w-full h-full object-cover object-center scale-100"
                 />
               </div>
@@ -80,7 +93,7 @@ const About = () => {
             className="lg:w-1/2 text-lg lg:order-2 order-1"
           >
             <p className="text-[#b3b3b3] leading-relaxed text-center lg:text-left">
-             As a passionate Software Engineering student and dedicated Full-Stack (MERN) Developer, I thrive on architecting end-to-end solutions with React.js, Node.js, Express.js, and MongoDB. My journey isn't just about writing code; it's about building complete systems. I've built a diverse portfolio of applications, from enterprise dashboards to full-stack company management systems, demonstrating a deep commitment to the entire development lifecycle.
+             {profile.aboutText}
             </p>
           </motion.div>
 

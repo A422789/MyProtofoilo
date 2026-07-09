@@ -14,9 +14,9 @@ const FlotingWhatsap = () => {
     
       <path 
         stroke="currentColor" 
-        stroke-linecap="round" 
-        stroke-linejoin="round" 
-        stroke-width="1.5" 
+        strokeLinecap="round" 
+        strokeLinejoin="round" 
+        strokeWidth="1.5" 
         fill="none"
         d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 13.72 2.53942 15.3051 3.46982 16.612L2 22L7.38797 20.5302C8.69489 21.4606 10.28 22 12 22Z" 
       />
