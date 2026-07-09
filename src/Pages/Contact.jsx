@@ -41,7 +41,16 @@ const Contact = () => {
     };
 
     try {
+      // 1. Save to our backend (for the admin dashboard)
       await API.post('/contact', data);
+
+      // 2. Send to Formspree (for email notification)
+      await fetch('https://formspree.io/f/mwpywbpo', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+
       setShowMessage(true);
       formRef.current.reset();
       setTimeout(() => setShowMessage(false), 3000);

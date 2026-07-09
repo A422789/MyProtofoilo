@@ -1,29 +1,6 @@
 const ContactSubmission = require('../models/ContactSubmission');
-const nodemailer = require('nodemailer');
 const { sendSuccess, sendCreated, sendError } = require('../utils/responseFormatter');
 const logger = require('../utils/logger');
-
-// Create email transporter (reusable)
-let transporter = null;
-
-const getTransporter = () => {
-  if (transporter) return transporter;
-
-  if (process.env.EMAIL_USER && process.env.EMAIL_PASS && process.env.EMAIL_PASS !== 'YOUR_GMAIL_APP_PASSWORD_HERE') {
-    transporter = nodemailer.createTransport({
-      host: 'smtp.gmail.com',
-      port: 465,
-      secure: true,
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
-    return transporter;
-  }
-
-  return null;
-};
 
 // POST /api/contact — public
 const submitContact = async (req, res, next) => {
@@ -32,42 +9,7 @@ const submitContact = async (req, res, next) => {
 
     // Save to database
     const submission = await ContactSubmission.create({ name, email, message });
-
-    // Send email notification in the background (non-blocking)
-    try {
-      const mailer = getTransporter();
-      if (mailer) {
-        // Do NOT await this, let it run in the background
-        mailer.sendMail({
-          from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
-          to: process.env.EMAIL_TO || process.env.EMAIL_USER,
-          replyTo: email,
-          subject: `New Portfolio Contact: ${name}`,
-          html: `
-            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-              <h2 style="color: #cea605;">New Contact Form Submission</h2>
-              <hr style="border-color: #cea605;" />
-              <p><strong>Name:</strong> ${name}</p>
-              <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
-              <p><strong>Message:</strong></p>
-              <blockquote style="background: #f9f9f9; padding: 15px; border-left: 4px solid #cea605;">
-                ${message}
-              </blockquote>
-              <hr />
-              <p style="color: #888; font-size: 12px;">
-                Sent from your portfolio contact form at ${new Date().toLocaleString()}
-              </p>
-            </div>
-          `,
-        })
-        .then(() => logger.info(`Contact email notification sent for submission from: ${email}`))
-        .catch((emailError) => logger.error(`Email notification failed: ${emailError.message}`));
-      } else {
-        logger.info('Email not configured — submission saved to DB only');
-      }
-    } catch (error) {
-      logger.error(`Email setup failed: ${error.message}`);
-    }
+    logger.info(`Contact submission saved to DB from: ${email}`);
 
     sendCreated(res, { id: submission._id }, 'Message sent successfully');
   } catch (error) {
