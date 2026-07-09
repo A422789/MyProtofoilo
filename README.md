@@ -7,13 +7,20 @@ This project showcases my ability to architect full-stack solutions, manage data
 
 ---
 
+## 🚀 Live Demos
+- **Live Portfolio:** [https://my-protofoilo-rtte.vercel.app](https://my-protofoilo-rtte.vercel.app)
+- **Admin Dashboard:** [https://my-protofoilo-co83.vercel.app](https://my-protofoilo-co83.vercel.app)
+*(Note: The admin dashboard is secured and requires admin credentials to access).*
+
+---
+
 ## 🌟 The Architecture
 
 This application is composed of three interconnected parts:
 
-1. **The Portfolio Frontend (React + Vite)**: The public-facing website featuring 3D animations, responsive layouts, and dynamic data fetching.
-2. **The Backend API (Node.js + Express)**: A highly secure, MVC-patterned API acting as the brain of the application.
-3. **The Admin Dashboard (React + Vite)**: A secure, JWT-authenticated portal where I can manage my entire portfolio content without touching a single line of code.
+1. **The Portfolio Frontend (React + Vite)**: The public-facing website featuring 3D animations, responsive layouts, and dynamic data fetching. Deployed on **Vercel**.
+2. **The Backend API (Node.js + Express)**: A highly secure, MVC-patterned API acting as the brain of the application. Deployed on **Railway**.
+3. **The Admin Dashboard (React + Vite)**: A secure, JWT-authenticated portal where I can manage my entire portfolio content without touching a single line of code. Deployed on **Vercel**.
 
 ---
 
@@ -23,7 +30,7 @@ This application is composed of three interconnected parts:
 - **Dynamic Content**: Every text, project, skill, and social link is fetched dynamically from MongoDB.
 - **Cloudinary Media**: Images and PDFs (like my CV and certificates) are securely streamed from the cloud.
 - **Premium Animations**: Built with Framer Motion, featuring 3D hover effects, typing animations, and scroll reveals.
-- **Integrated Contact Form**: Submissions don't just go to my email (via Nodemailer)—they are also securely stored in the database for me to read in the dashboard.
+- **Integrated Contact Form**: Submissions are dual-routed. They are securely stored in the database for me to read in the dashboard, and an instant email notification is sent via **Formspree API**.
 
 ### 🛡️ Backend (The Engine)
 - **Strict MVC Architecture**: Clean code separation (Routes, Controllers, Models, Middleware, Utils).
@@ -31,6 +38,7 @@ This application is composed of three interconnected parts:
   - JWT (JSON Web Tokens) for authentication.
   - Three layers of Rate Limiting (Global, Auth, Contact).
   - Helmet for HTTP headers & Mongo Sanitize for NoSQL injection prevention.
+  - Strict CORS configuration for deployment environments.
   - Joi validation & HTML sanitization (XSS protection) for all incoming data.
 - **Cloudinary SDK**: Automated image and PDF uploading, overwriting, and deletion.
 - **Winston Logging**: Daily rotating logs keeping track of requests and potential errors.
@@ -40,7 +48,7 @@ This application is composed of three interconnected parts:
 - **Analytics Overview**: Live stats showing total projects, skills, certificates, and unread messages.
 - **Complete CRUD Operations**: 
   - Update profile bio, hero text, and titles.
-  - Add/Edit/Delete Projects, Skills (with custom SVG injection), and Certificates.
+  - Add/Edit/Delete Projects, Skills (with auto-SVG coloring injection), and Certificates.
   - Upload & Replace images and PDFs directly to Cloudinary.
   - Read and manage contact form submissions.
 
@@ -53,15 +61,14 @@ This application is composed of three interconnected parts:
 - **Tailwind CSS v4**
 - **Framer Motion** (3D Animations)
 - **Axios** (API Calls)
-- **React Router Dom** (Navigation)
+- **React Router Dom** (Client-side Routing)
 - **React Hot Toast** (Notifications)
-- **Lucide React** (Icons)
+- **Formspree API** (Email Notifications)
 
 ### **Backend & Database**
 - **Node.js & Express.js**
 - **MongoDB & Mongoose** (Database & ODM)
 - **Cloudinary** (Cloud Media Storage)
-- **Nodemailer** (Email Notifications)
 - **JSON Web Tokens (JWT)** (Auth)
 - **Winston** (Logging)
 - **Joi** (Validation)
@@ -76,12 +83,12 @@ Because this is a full-stack application, running it requires booting up the dif
 - Node.js (v18+)
 - MongoDB Atlas cluster URI
 - Cloudinary credentials (Cloud Name, API Key, Secret)
-- Gmail App Password (for Nodemailer)
 
 ### 2. Environment Variables
 Create a `.env` file in the `backend/` directory (see `backend/.env.example` for details).
 Create a `.env` file in the `admin-dashboard/` directory containing:
 `VITE_API_BASE_URL=http://localhost:5000/api`
+Create a `.env` file in the `src/` directory containing the same API base URL.
 
 ### 3. Installation & Database Seeding
 Navigate to the backend and install dependencies:
@@ -124,4 +131,4 @@ npm run dev
 - **Email**: a422789255@gmail.com
 - **LinkedIn**: [Ahmad Ayyad](https://www.linkedin.com/in/ahmad-ayyad-608293304/)
 
-⭐ *This portfolio represents my transition from frontend development to full-stack engineering, demonstrating my commitment to building high-quality, production-ready, and scalable architectures.*
+⭐ *This portfolio represents my transition from frontend development to full-stack engineering, demonstrating my commitment to building high-quality, production-ready, scalable web applications.*
