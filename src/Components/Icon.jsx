@@ -23,7 +23,7 @@ const Icon = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#f2de8c]/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out" />
           <div className="relative z-10">
             <div
-              className="w-7 h-7 text-[#cea605] group-hover:text-[#f2de8c] transition-colors duration-300 [&_svg]:w-full [&_svg]:h-full"
+              className="w-7 h-7 text-[#cea605] group-hover:text-[#f2de8c] transition-colors duration-300 [&_svg]:w-full [&_svg]:h-full [&_svg]:fill-current [&_path]:fill-current"
               dangerouslySetInnerHTML={{ __html: link.iconSvg }}
             />
           </div>
