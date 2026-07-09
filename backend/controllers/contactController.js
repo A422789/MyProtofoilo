@@ -33,11 +33,12 @@ const submitContact = async (req, res, next) => {
     // Save to database
     const submission = await ContactSubmission.create({ name, email, message });
 
-    // Send email notification (non-blocking — don't fail the request if email fails)
+    // Send email notification in the background (non-blocking)
     try {
       const mailer = getTransporter();
       if (mailer) {
-        await mailer.sendMail({
+        // Do NOT await this, let it run in the background
+        mailer.sendMail({
           from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
           to: process.env.EMAIL_TO || process.env.EMAIL_USER,
           replyTo: email,
@@ -58,14 +59,14 @@ const submitContact = async (req, res, next) => {
               </p>
             </div>
           `,
-        });
-        logger.info(`Contact email notification sent for submission from: ${email}`);
+        })
+        .then(() => logger.info(`Contact email notification sent for submission from: ${email}`))
+        .catch((emailError) => logger.error(`Email notification failed: ${emailError.message}`));
       } else {
         logger.info('Email not configured — submission saved to DB only');
       }
-    } catch (emailError) {
-      // Don't fail the request if email fails — submission is already saved
-      logger.error(`Email notification failed: ${emailError.message}`);
+    } catch (error) {
+      logger.error(`Email setup failed: ${error.message}`);
     }
 
     sendCreated(res, { id: submission._id }, 'Message sent successfully');
