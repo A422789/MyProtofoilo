@@ -9,8 +9,7 @@ This project showcases my ability to architect full-stack solutions, manage data
 
 ## 🚀 Live Demos
 - **Live Portfolio:** [https://my-protofoilo-rtte.vercel.app](https://my-protofoilo-rtte.vercel.app)
-- **Admin Dashboard:** [https://my-protofoilo-co83.vercel.app](https://my-protofoilo-co83.vercel.app)
-*(Note: The admin dashboard is secured and requires admin credentials to access).*
+
 
 ---
 
